@@ -15,7 +15,7 @@
     }
 
     strong {
-      color: red;
+      color: rgb(0, 119, 255);
     }
   </style>
 </head>
@@ -30,13 +30,15 @@
 
     $(document).ready(function () {
       $(window).scroll(function () {
-        var scroll_height = $(window).scrollTop() + $(window).height();
-        var document_height = $(window).height();
 
-        if (scroll_height == document_height) {
-          $(`<strong>다시</strong>`).appendTo('body');
+        const scroll_top = $(window).scrollTop();
+        const document_height = $(document).height();
+        const window_height = $(window).height();
+
+        if (scroll_top == document_height - window_height) {
+          $(`<strong>무한스크롤</strong>`).appendTo('body');
           for (var i = 0; i < 10; i++) {
-            $(`<h1>Hello${i}</h1>`).appendTo('body');
+            $(`<h1>Hello ${i}</h1>`).appendTo('body');
           }
         }
       })
